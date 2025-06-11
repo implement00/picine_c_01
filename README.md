@@ -23,7 +23,7 @@ _This documents covers what I have learned from doing these exersizes. This is f
 <br>
 <br>
 
-## ft_putchar
+## ft_ft
 
 - **Assignment Name:** _ex00_
 
@@ -42,12 +42,25 @@ outside of the function. It's not contained to functio scope._
 ### What I learned: 
 **Note:** When declaring a "*" pointer, the pointer variable data type stores a memory-address of a variable.
 **Note:** The memory-address of a variable is received by using "&" operator, "address-of". 
+**Note:** When declaring a "*" pointer, the pointer expects a data-type specifed aswell. e.g; int, char.
 **Note:** When working with pointer variables, I can directly update the value the pointer is pointing towards. And it will be reflected accross entire program. Not just scope of the function.
+```c
+void	ft_ft(int *numb) {
+	*numb = 42' // re-assign changes reflected globally to value
+	}
+```
 
-**Note:** A single `char` is always within single quotes: `''`. 
-**Note:** A array of `char` is always within double quotes: `""`.
-
-_It's also possible to pass a array of characters stored in a variable to the write func, but that is not in scope for now._
+**Note:** Instead of declaring a "*" pointer data type and then using "&" "address-of" operator to get memory-address of variable, and saving that within the pointer variable data type declated, before passing the initialized pointer to the function, I can also **NOT** initialize a pointer, and instead if the function expects to receive a pointer use the "&" operator while passing variable to the function. This works because the pointer expects to hold a memory-address, so it can receive it directly.
+```c
+void	ft_ft(int *numb) {
+	*numb = 42' // re-assign changes reflected globally to value
+	}
+int main(void) {
+	int x;
+	x = 10;
+	ft_ft(&x) // passinf variable memory-address which the pointer expects | "address-of" "&" operator.	
+}
+```
 
 <br>
 
