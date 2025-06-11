@@ -306,3 +306,59 @@ int main(void) {
 <br>
 
 
+## ft_div_mod
+
+- **Assignment Name:** _ex03_
+
+/ **Goal of assignment:** _Write a function of function-type `void` (indicate it's return value is nothing). 
+The function devides 'a' by 'b' and stores the result in the integer pointed to by 'div' (*div)m it also stores the remained or the devision 'a' by 'b' in the integer pointed to by 'mod' (*mod)._
+
+{ **My Solution:** _There is no quote "solution", as this just teaches correct syntax. The expect two integers a, b then expects us to use the "/" devision operator and the "%" mod operator. It also want's us to once again work with holding a value within a variable defined._
+
+! **Purpose of the assigment:** | _Learning about how you can utilise the "%" mod operator, which takes the remainder of a devision, e.g; 10 % 3 =1. And how to utilise the "/" devision opeator, e.g; 10 / 3 = 3. Devision operator results in whole number only. It's also giving us the repeat lesson of re-assigning values to variables stored in pointers, updating there variable values. (mod and div) accrosss entire program, not just function scope._
+
+<br>
+
+### What I learned: 
+**Note:** The 'mod' "%" operator gives you the remainder of a devision integers, e.g; 10 % 3 = 1. The 'devision' "/" operator preforms a devision, e.g; 10 / 3 = 3. Result of devision is whole numbers base10.
+```c
+*div = (a / b);
+*mod = (a % b);
+```
+**Note:** Repeating assigning updated values to variable values stored within pointers as memory-addresses.
+```c
+ft_div_mod(a, b, &div, &mod); // func defined
+ft_div_mod(a, b, &div, &mod); // "&" address-of operator passed, giving memory-address of variable 
+
+```
+
+<br>
+
+**|** Aproach:
+```c
+#include <stdio.h>
+#include <unistd.h>
+
+void ft_div_mod(int a, int b, int *div, int *mod) {
+  *mod = (a % b);
+  *div = (a / b);
+}
+
+int main(void) {
+  int a;
+  int b;
+  int div;
+  int mod;
+  
+  a = 10;
+  b = 3;
+  
+  ft_div_mod(a, b, &div, &mod);
+  printf("%d %d ", div, mod);
+  return 0;
+}
+```
+
+
+
+
