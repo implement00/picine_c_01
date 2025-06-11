@@ -417,4 +417,56 @@ int main(void) {
 ```
 
 
+## ft_putstr
+
+- **Assignment Name:** _ex05_
+
+/ **Goal of assignment:** _Write a function of function-type `void` (indicate it's return value is nothing). 
+The function displays a string of characters on the standard output._
+
+{ **My Solution:** _._
+
+! **Purpose of the assigment:** | _._
+
+<br>
+
+### What I learned: 
+**Note:** The 'mod' "%" operator gives you the remainder of a devision integers, e.g; 10 % 3 = 1. The 'devision' "/" operator preforms a devision, e.g; 10 / 3 = 3. Result of devision is whole numbers base10.
+```c
+*div = (a / b);
+*mod = (a % b);
+```
+**Note:** You can use two *ptr variables in calculations, e.g; *a / *b . This is allowed because "*" pointer is pointing towards the value of the variables passed as memory-addresses.
+```c
+holder = (*a / *b);
+*b = (*a % *b);
+```
+
+<br>
+
+**|** Aproach:
+```c
+#include <stdio.h>
+#include <unistd.h>
+
+void ft_putstr(char *str) {
+  int i;
+  char c;
+  
+  while(str[i]) {
+    char c = str[i];
+    write(1, &c, 1);
+    i++;
+  }
+  
+}
+
+int main(void) {
+  char str[] = "helloworld";
+  
+  ft_putstr(str);
+  return 0;
+}
+```
+
 
