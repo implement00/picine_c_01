@@ -86,7 +86,8 @@ int	main(void)
 	ft_ft(number);
 	printf("Number after funciton; %d,", x);
 	return 0;
-}```
+}
+```
 
 **|** Aproach number 2:
 
@@ -109,7 +110,93 @@ int	main(void)
 	ft_ft(&x);
 	printf("Number after funciton; %d,", x);
 	return 0;
-}```
+}
+```
+
+<br>
+<br>
+
+## ft_ft
+
+- **Assignment Name:** _ex01_
+
+/ **Goal of assignment:** _Write a function of function-type `void` (indicate it's return value is nothing). 
+The function takes a pointer to a pointer to a pointer to a pointer to a
+pointer to a pointer to a pointer to a pointer to a pointer to an int as a parameter
+and sets the value of that int to 42. The function receives pointer variable like; '*********numb' **9** "*" pointers before it._
+
+{ **My Solution:** _There is no quote "solution", as this just teaches correct syntax. I declare a int x, and give it value 10. Then using the int *ptr1 to declare the first pointer. For the second "*" pointer I utilise "**"; **ptr2, this can now point to pointer *ptr1. For pointer 3 I do ***ptr3,  this can now point to pointer 2. I increment this pointer declaration method all the way up untill int ********ptr8; . the *********numb pointer passed to the function has one "*" pointer value more than ptr8. Now I can indirectly point to the value stored within *ptr1._
+
+! **Purpose of the assigment:** | _Learning about how pointers "*" can point to a earlier initialisation of a pointer, I don't know why this is valuable yet. But it's cleary what is tought._
+
+<br>
+
+### What I learned: 
+**Note:** When you want to point a pointer ("*") to a pointer you increment the "*" pointer operator based on how many pointer before you hold that value.
+**Note:** When working with pointer to pointer, the OG pointer, *ptr1 stores the memory-address of the variable value". 
+```c
+int x;
+int *ptr1;
+int **ptr2;
+int ***ptr3;
+int ****ptr4;
+int *****ptr5;
+int ******ptr6;
+int *******ptr7;
+int ********ptr8;
+int *********number;
+```
+
+**Note:** If you wan't to reach the value of a declared pointer trough other pointers, you need to pass the amount of pointers back the OG pointer variable value is stored, e.g; 9 (*********numb).
+```c
+void	ft_ft(int *********numb) {
+	*********numb = 42' // re-assign changes reflected globally to value
+	}
+```
+
+<br>
+
+**|** Aproach:
+```c
+#include <stdio.h>
+#include <unistd.h>
+
+
+void    ft_ultimate_ft(int *********numb)
+    {
+    *********numb = 42;
+}
+
+
+int main(void)
+    {
+    int x;
+    int *ptr1;
+    int **ptr2;
+    int ***ptr3;
+    int ****ptr4;
+    int *****ptr5;
+    int ******ptr6;
+    int *******ptr7;
+    int ********ptr8;
+    int *********number;
+    
+    x = 5;
+    ptr1 = &x;
+    ptr2 = &ptr1;
+    ptr3 = &ptr2;
+    ptr4 = &ptr3;
+    ptr5 = &ptr4;
+    ptr6 = &ptr5;
+    ptr7 = &ptr6;
+    ptr8 = &ptr7;
+    number = &ptr8;
+    printf("Current Number; %d,", x);
+    ft_ultimate_ft(number);
+    printf("Number after funciton; %d,", x);
+    return 0;
+}
+```
 
 <br>
 <br>
