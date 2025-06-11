@@ -3,14 +3,12 @@
 
 int ft_strlen(char *str) 
     {
-    int count;
     int i;
     while(str[i]) {
-        count++;
         i++;
     }
 
-    return (count);
+    return (i);
 }
 
 int main(void) {

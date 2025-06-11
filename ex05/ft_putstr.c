@@ -3,12 +3,12 @@
 
 void    ft_putstr(char *str) {
     int i;
-    char holder;
+    char c;
 
     i = 0;
     while(str[i]) {
-        holder = str[i];
-        write(1, &holder, 1);
+        c = str[i];
+        write(1, &c, 1);
         i++;
     }
 
