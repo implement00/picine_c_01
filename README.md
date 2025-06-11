@@ -202,3 +202,107 @@ int main(void)
 <br>
 
 
+## ft_swap
+
+- **Assignment Name:** _ex02_
+
+/ **Goal of assignment:** _Write a function of function-type `void` (indicate it's return value is nothing). 
+The function swaps the values of two integers using their (memory) addresses received
+as parameters._
+
+{ **My Solution:** _There is no quote "solution", as this just teaches correct syntax. The expect two integers a, b the function declares "*" pointer data type. Meaning they hold the memory-address of a specifed variable value. I achieve this by passing the "&a", "&b" meaning "address-of" "&" operator. Then I declare a "holder" value called int holder, then perform a swap. Kinda like a midle man holder yk._
+
+! **Purpose of the assigment:** | _Learning about how you can assign the variable value of a "*" pointer to a fresh initialized variable like "int holder". Then re-assign pointer variable values *a = *b. Finally assign the pointer a value again from a variable which is not a pointer._
+
+<br>
+
+### What I learned: 
+**Note:** You can assign a *ptr = *ptr, meaning the value of the pointer variable is updated with the value of the pointer you are updating.
+```c
+void ft_swap(int *a, int *b) {
+    int placeholder;
+    placeholder = *a;
+    *a = *b; // this line highlight
+    *b = placeholder;
+}
+```
+**Note:** You can assign int holder = *ptr, the holder updates the value of the pointer variable value.
+```c
+void ft_swap(int *a, int *b) {
+    int placeholder;
+    placeholder = *a; // this line highlight
+    *a = *b;
+    *b = placeholder;
+}
+```
+**Note:** You can assign the *ptr = holder, updating the variable value of the memory-address the pointer points towards with a normal variable. (All data types are the same though.)
+```c
+void ft_swap(int *a, int *b) {
+    int placeholder;
+    placeholder = *a;
+    *a = *b;
+    *b = placeholder; // this line highlight
+}
+```
+
+<br>
+
+**|** Aproach number 1:
+```c
+#include <stdio.h>
+#include <unistd.h>
+
+void ft_swap(int *a, int *b) {
+    int placeholder;
+    placeholder = *a;
+    *a = *b;
+    *b = placeholder;
+}
+
+int main(void) {
+    int a;
+    int b; 
+    int *ptr_a;
+    int *ptr_b;
+
+    a = 10;
+    b = 5;
+    ptr_a = &a;
+    ptr_b = &b;
+    printf("Current value a; %d Current value b: %d \n", a, b);
+    ft_swap(ptr_a, ptr_b);
+    printf("After swap value a; %d Current value b: %d \n", a, b);
+    return 0;
+}
+}
+```
+
+**|** Aproach number 2:
+```c
+#include <stdio.h>
+#include <unistd.h>
+
+void ft_swap(int *a, int *b) {
+    int placeholder;
+    placeholder = *a;
+    *a = *b;
+    *b = placeholder;
+}
+
+int main(void) {
+    int a;
+    int b;
+
+    a = 10;
+    b = 5;
+    printf("Current value a; %d Current value b: %d \n", a, b);
+    ft_swap(&a, &b);
+    printf("After swap value a; %d Current value b: %d \n", a, b);
+    return 0;
+}
+```
+
+<br>
+<br>
+
+
