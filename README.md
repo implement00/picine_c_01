@@ -313,7 +313,7 @@ int main(void) {
 / **Goal of assignment:** _Write a function of function-type `void` (indicate it's return value is nothing). 
 The function devides 'a' by 'b' and stores the result in the integer pointed to by 'div' (*div)m it also stores the remained or the devision 'a' by 'b' in the integer pointed to by 'mod' (*mod)._
 
-{ **My Solution:** _There is no quote "solution", as this just teaches correct syntax. The expect two integers a, b then expects us to use the "/" devision operator and the "%" mod operator. It also want's us to once again work with holding a value within a variable defined._
+{ **My Solution:** _There is no quote "solution", as this just teaches correct syntax. The expect two integers a, b then expects us to use the "/" devision operator and the "%" mod operator._
 
 ! **Purpose of the assigment:** | _Learning about how you can utilise the "%" mod operator, which takes the remainder of a devision, e.g; 10 % 3 =1. And how to utilise the "/" devision opeator, e.g; 10 / 3 = 3. Devision operator results in whole number only. It's also giving us the repeat lesson of re-assigning values to variables stored in pointers, updating there variable values. (mod and div) accrosss entire program, not just function scope._
 
@@ -327,9 +327,13 @@ The function devides 'a' by 'b' and stores the result in the integer pointed to 
 ```
 **Note:** Repeating assigning updated values to variable values stored within pointers as memory-addresses.
 ```c
-ft_div_mod(a, b, &div, &mod); // func defined
-ft_div_mod(a, b, &div, &mod); // "&" address-of operator passed, giving memory-address of variable 
-
+ft_div_mod(int a, int b, int *div, int *mod); // func defined
+ft_div_mod(a, b, &div, &mod); // "&" address-of operator passed, giving memory-address of variable
+```
+**Note:** The operators "/" and "%", devision and mod both store return values integers, so they are defined as data type int when passed.
+```c
+ft_div_mod(int a, int b, int *div, int *mod); // func defined
+ft_div_mod(a, b, &div, &mod); // "&" address-of operator passed, giving memory-address of variable
 ```
 
 <br>
@@ -359,6 +363,58 @@ int main(void) {
 }
 ```
 
+## ft_ultimate_div_mod
+
+- **Assignment Name:** _ex04_
+
+/ **Goal of assignment:** _Write a function of function-type `void` (indicate it's return value is nothing). 
+The function devides the value pointed to by 'a' by the value pointed to by 'b'. ("the value pointed to by variable", simply means *variable) The result of the devision ('/') is stored in the integer pointed to by a, *a. And the remainder of the devision is stoed in the integer pointed to by b. *b._
+
+{ **My Solution:** _There is no quote "solution", as this just teaches correct syntax. The expect two pointer integers *a, *b then expects us to use the "/" devision operator and the "%" mod operator. It also want's us to once again work with holding a value within a variable defined._
+
+! **Purpose of the assigment:** | _Learning about how you can utilise the "%" mod operator, which takes the remainder of a devision, e.g; 10 % 3 =1. And how to utilise the "/" devision opeator, e.g; 10 / 3 = 3. Devision operator results in whole number only. It's also giving us the repeat lesson of re-assigning values to variables stored in pointers, updating there variable values. It also repeats the lesson of using a 'int holder' variable so I can re-assign the value to the pointer *a after doing needed operations._
+
+<br>
+
+### What I learned: 
+**Note:** The 'mod' "%" operator gives you the remainder of a devision integers, e.g; 10 % 3 = 1. The 'devision' "/" operator preforms a devision, e.g; 10 / 3 = 3. Result of devision is whole numbers base10.
+```c
+*div = (a / b);
+*mod = (a % b);
+```
+**Note:** You can use two *ptr variables in calculations, e.g; *a / *b . This is allowed because "*" pointer is pointing towards the value of the variables passed as memory-addresses.
+```c
+holder = (*a / *b);
+*b = (*a % *b);
+```
+
+<br>
+
+**|** Aproach:
+```c
+#include <stdio.h>
+#include <unistd.h>
+
+void ft_div_mod(int *a, int *b) {
+  int holder;
+  
+  holder = (*a / *b);
+  *b = (*a % *b);
+  *a = holder;
+}
+
+int main(void) {
+  int a;
+  int b;
+
+  a = 10;
+  b = 3;
+  
+  ft_div_mod(&a, &b);
+  printf("%d %d ", a, b);
+  return 0;
+}
+```
 
 
 
