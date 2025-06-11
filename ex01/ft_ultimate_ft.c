@@ -2,9 +2,9 @@
 #include <unistd.h>
 
 
-void    ft_ultimate_ft(int ********numb)
+void    ft_ultimate_ft(int *********numb)
     {
-    ********numb = 42;
+    *********numb = 42;
 }
 
 
@@ -18,7 +18,8 @@ int main(void)
     int *****ptr5;
     int ******ptr6;
     int *******ptr7;
-    int ********number;
+    int ********ptr8;
+    int *********number;
     
     x = 5;
     ptr1 = &x;
@@ -28,7 +29,8 @@ int main(void)
     ptr5 = &ptr4;
     ptr6 = &ptr5;
     ptr7 = &ptr6;
-    number = &ptr7;
+    ptr8 = &ptr7;
+    number = &ptr8;
     printf("Current Number; %d,", x);
     ft_ultimate_ft(number);
     printf("Number after funciton; %d,", x);
